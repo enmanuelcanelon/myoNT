@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=EAC Blessed
+GenericName=Notas offline
+Comment=Tu Notion local-first, privado y offline
+Exec=/home/ikol/.local/bin/eac-blessed
+Icon=eac-blessed
+Terminal=false
+Categories=Office;Utility;TextEditor;
+Keywords=notion;notas;offline;markdown;
+StartupWMClass=eac-blessed
