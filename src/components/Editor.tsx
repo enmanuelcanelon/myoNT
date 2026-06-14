@@ -7,7 +7,7 @@ import type { PartialBlock } from "@blocknote/core";
 import type { Page } from "../db";
 import { updatePage } from "../db";
 
-function EditorInner({ page }: { page: Page }) {
+function EditorInner({ page, theme }: { page: Page; theme: "light" | "dark" }) {
   const saveTimer = useRef<number | null>(null);
 
   const initialContent = useMemo<PartialBlock[] | undefined>(() => {
@@ -36,13 +36,19 @@ function EditorInner({ page }: { page: Page }) {
     <BlockNoteView
       editor={editor}
       onChange={handleChange}
-      theme="light"
+      theme={theme}
       className="bn-editor"
     />
   );
 }
 
-export default function Editor({ page }: { page: Page }) {
+export default function Editor({
+  page,
+  theme,
+}: {
+  page: Page;
+  theme: "light" | "dark";
+}) {
   // Recreamos el editor al cambiar de página (key) para cargar su contenido.
-  return <EditorInner key={page.id} page={page} />;
+  return <EditorInner key={page.id} page={page} theme={theme} />;
 }

@@ -1,4 +1,4 @@
-# Mi Notion 📝
+# EAC Blessed ✦
 
 Tu propio **Notion open source, local-first y 100% offline**. Todo se guarda en
 tu navegador (IndexedDB); no hay servidores, ni cuentas, ni nube. Y puedes
@@ -36,7 +36,7 @@ npm run preview
 
 1. En Notion: `⚙️ Settings` → `Export` (o en una página: `•••` → `Export`).
 2. Elige **Markdown & CSV** e incluye subpáginas. Descarga el `.zip`.
-3. En Mi Notion, pulsa **⬇ Importar Notion** y selecciona ese `.zip`.
+3. En EAC Blessed, pulsa **⬇ Importar Notion** y selecciona ese `.zip`.
 
 > Nota: las bases de datos de Notion se importan como subpáginas (cada fila es
 > una página). Los `.csv` de las vistas de base de datos no se importan como

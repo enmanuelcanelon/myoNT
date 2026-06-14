@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import db, { createPage, deletePage, type Page } from "../db";
+import Logo from "./Logo";
 
 interface TreeNode {
   page: Page;
@@ -103,6 +104,8 @@ interface SidebarProps {
   onSelect: (id: string) => void;
   onImport: () => void;
   onExport: () => void;
+  theme: "light" | "dark";
+  onToggleTheme: () => void;
 }
 
 export default function Sidebar({
@@ -110,6 +113,8 @@ export default function Sidebar({
   onSelect,
   onImport,
   onExport,
+  theme,
+  onToggleTheme,
 }: SidebarProps) {
   const pages = useLiveQuery(() => db.pages.toArray(), []) ?? [];
   const [query, setQuery] = useState("");
@@ -132,7 +137,16 @@ export default function Sidebar({
   return (
     <aside className="sidebar">
       <div className="brand">
-        <span className="brand-logo">◆</span> Mi Notion
+        <span className="brand-title">
+          <Logo size={22} /> EAC Blessed
+        </span>
+        <button
+          className="theme-toggle"
+          onClick={onToggleTheme}
+          title={theme === "light" ? "Modo oscuro" : "Modo claro"}
+        >
+          {theme === "light" ? "🌙" : "☀️"}
+        </button>
       </div>
 
       <input

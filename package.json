@@ -1,9 +1,9 @@
 {
-  "name": "mi-notion",
+  "name": "eac-blessed",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Tu propio Notion: local-first, offline, open source. Con importación/exportación de Notion.",
+  "description": "EAC Blessed: tu propio Notion local-first, offline y open source. Con importación/exportación de Notion.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
