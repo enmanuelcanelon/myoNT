@@ -25,12 +25,32 @@ npm install
 npm run dev      # abre http://localhost:5173
 ```
 
-Para una versión de producción:
+Para una versión de producción (web):
 
 ```bash
 npm run build
 npm run preview
 ```
+
+## 🖥️ App de escritorio (Tauri)
+
+EAC Blessed también funciona como **aplicación de escritorio nativa** (con
+[Tauri](https://tauri.app/)), sin necesidad de navegador ni servidor. Tus datos
+se guardan localmente en el directorio de datos de la app y **se conservan entre
+sesiones y actualizaciones**.
+
+```bash
+npm run app:dev      # ejecuta la app de escritorio en modo desarrollo
+npm run app:build    # compila el binario nativo + AppImage
+```
+
+El resultado queda en:
+
+- Binario ejecutable: `src-tauri/target/release/eac-blessed`
+- Instalable AppImage: `src-tauri/target/release/bundle/appimage/*.AppImage`
+
+> Requisitos para compilar: [Rust](https://www.rust-lang.org/) y, en Linux,
+> `webkit2gtk` (en Arch/CachyOS: `sudo pacman -S webkit2gtk-4.1`).
 
 ## 📥 Cómo importar tu Notion
 
@@ -48,6 +68,7 @@ npm run preview
 - BlockNote (editor de bloques)
 - Dexie / IndexedDB (almacenamiento offline)
 - JSZip (importación/exportación)
+- Tauri 2 (app de escritorio nativa)
 
 ## 🔐 Privacidad
 
@@ -66,4 +87,9 @@ src/
     PageHeader.tsx      # Título e icono de la página
   lib/
     notion.ts           # Importar zip de Notion / exportar a Markdown
+src-tauri/              # App de escritorio (Tauri / Rust)
 ```
+
+## 📄 Licencia
+
+[MIT](./LICENSE) © Enmanuel Canelon
