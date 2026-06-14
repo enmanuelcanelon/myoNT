@@ -6,6 +6,7 @@ import Editor from "./components/Editor";
 import PageHeader from "./components/PageHeader";
 import Logo from "./components/Logo";
 import { exportAllToZip, importNotionZip, PAGE_LINK_PREFIX } from "./lib/notion";
+import { checkForUpdates } from "./lib/updater";
 
 type Theme = "light" | "dark";
 
@@ -78,6 +79,11 @@ export default function App() {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("mn-theme", theme);
   }, [theme]);
+
+  // Comprueba actualizaciones OTA al arrancar (solo en la app de escritorio).
+  useEffect(() => {
+    void checkForUpdates(true);
+  }, []);
 
   // Intercepta enlaces dentro del editor:
   // - Enlaces internos entre páginas -> navegan en la app (sin recargar).

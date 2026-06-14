@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import db, { createPage, deletePage, type Page } from "../db";
 import Logo from "./Logo";
+import { checkForUpdates, isTauri } from "../lib/updater";
 
 interface TreeNode {
   page: Page;
@@ -205,6 +206,11 @@ export default function Sidebar({
             ⬆ Exportar todo
           </button>
         </div>
+        {isTauri() && (
+          <button className="btn" onClick={() => checkForUpdates(false)}>
+            ⟳ Buscar actualizaciones
+          </button>
+        )}
       </div>
     </aside>
   );
